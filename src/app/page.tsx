@@ -30,8 +30,7 @@ export default function Page() {
 { label: "Assets", href: "/assets", icon: <Package size={20} /> },
 
     { label: "Dashboard", href: "/dashboard", icon: <BarChart3 size={20} /> },
-    { label: "Send Tokens", href: "/send", icon: <Send size={20} /> },
-    { label: "Receive Tokens", href: "/receive", icon: <ArrowDownToLine size={20} /> },
+    { label: "Send/Receive", href: "/sendReceive", icon: <Send size={20} /> },
     { label: "Swap / Exchange", href: "/swap", icon: <RefreshCw size={20} /> },
     { label: "Airdrop", href: "/airdrop", icon: <Gift size={20} /> },
     { label: "Token Launchpad", href: "/launchpad", icon: <Coins size={20} /> },

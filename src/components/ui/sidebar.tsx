@@ -87,7 +87,7 @@ export const DesktopSidebar = ({
   return (
     <motion.div
       className={cn(
-        "h-full px-4 py-6 hidden md:flex md:flex-col shrink-0",
+        "h-full px-4 py-3 hidden md:flex md:flex-col shrink-0",
         // 🔥 Premium Dark Theme
         "bg-gradient-to-b from-[#1a1a1a] via-[#111111] to-black border-r border-gray-800 shadow-xl",
         className

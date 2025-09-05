@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-export default function Navbar() {
+export default function AirdropNav() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const navItems = [
