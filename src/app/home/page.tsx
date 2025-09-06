@@ -3,11 +3,12 @@ import FlipLink from "../../components/ui/text-effect-flipper"
 import ColourfulText from "../../components/ui/colourful-text"
 
 
-import React, { useState } from "react";
+import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import { motion } from "framer-motion";
 import { Search } from "lucide-react";
 import Image from "next/image";
 import { Sidebar, SidebarBody, SidebarLink } from "../../components/ui/sidebar"; // import your Sidebar
+
 import {
   Send,
   Coins,
@@ -25,10 +26,46 @@ import {
   Package,
 } from "lucide-react";
 
-type Link = {
-  label: string;
-  href: string;
+type Testimonial = {
+  quote: string;
+  name: string;
+  designation: string;
+  src: string;
 };
+
+const TestimonialItems: Testimonial[] = [
+  {
+    quote: "This product completely changed the way I work. Highly recommend!",
+    name: "Alice Johnson",
+    designation: "Product Manager",
+    src: "/images/alice.jpg"
+  },
+  {
+    quote: "Excellent service and support. I couldn't be happier.",
+    name: "Bob Smith",
+    designation: "Software Engineer",
+    src: "/images/bob.jpg"
+  },
+  {
+    quote: "A game-changer for our team. Efficiency has doubled!",
+    name: "Catherine Lee",
+    designation: "Team Lead",
+    src: "/images/catherine.jpg"
+  },
+  {
+    quote: "The quality and attention to detail are unmatched.",
+    name: "David Kim",
+    designation: "UX Designer",
+    src: "/images/david.jpg"
+  },
+  {
+    quote: "I was skeptical at first, but this exceeded all expectations.",
+    name: "Emily Davis",
+    designation: "Marketing Head",
+    src: "/images/emily.jpg"
+  }
+];
+
 
 export default function Homepage() {
   const links = [
@@ -156,11 +193,14 @@ export default function Homepage() {
               transition={{ duration: 1 }}
               className="flex justify-center"
             >
-              <img
-                src="/nft-hero.png"
-                alt="NFT Art"
-                className="rounded-2xl shadow-lg"
-              />
+                  <Image
+        src="/Fox in coat.png"
+        alt="NFT Art"
+        className="rounded-2xl shadow-lg mt-[-10]"
+
+        width={500}
+        height={400} 
+      />
             </motion.div>
           </section>
 
@@ -182,6 +222,11 @@ export default function Homepage() {
               />
             ))}
           </motion.div>
+            
+            <AnimatedTestimonials testimonials={TestimonialItems}/>
+
+
+
         </main>
       </div>
     </div>
