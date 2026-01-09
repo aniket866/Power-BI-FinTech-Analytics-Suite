@@ -4,8 +4,8 @@ import FlipLink from "./ui/text-effect-flipper";
 import ColourfulText from "./ui/colourful-text";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import { motion } from "framer-motion";
-import { Search } from "lucide-react";
 import Image from "next/image";
+import Navbar from "./Navbar";
 
 type Testimonial = {
   quote: string;
@@ -19,67 +19,44 @@ const TestimonialItems: Testimonial[] = [
     quote: "This product completely changed the way I work. Highly recommend!",
     name: "Alice Johnson",
     designation: "Product Manager",
-    src: "/images/alice.jpg",
+    src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3560&auto=format&fit=crop",
   },
   {
     quote: "Excellent service and support. I couldn't be happier.",
     name: "Bob Smith",
     designation: "Software Engineer",
-    src: "/images/bob.jpg",
+    src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=3540&auto=format&fit=crop",
   },
   {
     quote: "A game-changer for our team. Efficiency has doubled!",
     name: "Catherine Lee",
     designation: "Team Lead",
-    src: "/images/catherine.jpg",
+    src: "https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=3540&auto=format&fit=crop",
   },
   {
     quote: "The quality and attention to detail are unmatched.",
     name: "David Kim",
     designation: "UX Designer",
-    src: "/images/david.jpg",
+    src: "https://images.unsplash.com/photo-1636041293178-808a676cda48?q=80&w=2946&auto=format&fit=crop",
   },
   {
     quote: "I was skeptical at first, but this exceeded all expectations.",
     name: "Emily Davis",
     designation: "Marketing Head",
-    src: "/images/emily.jpg",
+    src: "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?q=80&w=2592&auto=format&fit=crop",
   },
 ];
 
 export default function HomePage() {
   const partners = ["binance", "solana", "coinbase", "metamask"];
 
+
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* Navbar */}
-      <motion.nav
-        initial={{ y: -80 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="fixed top-0 z-50 w-full border-b border-white/10 bg-black/60 backdrop-blur-lg"
-      >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-4">
-          <div className="text-xl font-bold">NFT Collection</div>
+    <div className="w-full h-full bg-[#080802] text-white">
+      {/* Navbar - Sticky */}
+     <Navbar/>
 
-          <div className="flex items-center gap-4">
-            <div className="flex items-center rounded-full bg-white/10 px-4 py-2">
-              <Search size={18} className="mr-2 text-white" />
-              <input
-                placeholder="Search Arts and NFT"
-                className="bg-transparent text-sm text-white outline-none"
-              />
-            </div>
-            <a className="cursor-pointer hover:text-gray-300">Explore</a>
-            <a className="cursor-pointer hover:text-gray-300">About Us</a>
-            <button className="rounded-full bg-white px-4 py-2 font-semibold text-black transition hover:bg-gray-200">
-              Connect Wallet
-            </button>
-          </div>
-        </div>
-      </motion.nav>
-
-      <main className="mx-auto max-w-7xl px-8 pt-32">
+      <main className="mx-auto w-full max-w-7xl px-8 py-10">
         {/* Hero */}
         <section className="grid grid-cols-1 items-center gap-10 md:grid-cols-2">
           <motion.div
@@ -99,7 +76,7 @@ export default function HomePage() {
               scarcity.
             </p>
 
-            <div className="mt-8 flex gap-4">
+            <div className="mt-12 flex gap-4">
               <button className="rounded-full border border-white px-6 py-3 transition hover:bg-white hover:text-black">
                 Explore More →
               </button>
@@ -109,18 +86,19 @@ export default function HomePage() {
             </div>
           </motion.div>
 
+          {/* Right Side Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
-            className="flex justify-center"
+            className="flex justify-center md:-mt-10"
           >
             <Image
-              src="/Fox in coat.png"
+              src="/Fox in coat2.png"
               alt="NFT Art"
-              width={500}
-              height={400}
-              className="rounded-2xl shadow-lg"
+              width={550}
+              height={300}
+              className="rounded-2xl shadow-lg object-cover"
             />
           </motion.div>
         </section>
@@ -130,17 +108,12 @@ export default function HomePage() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="my-16 flex justify-around rounded-xl border border-white/10 bg-black/30 py-10 backdrop-blur-lg"
+          className="my-16 flex flex-wrap justify-around gap-6 rounded-xl border border-white/10 bg-black/30 py-10 backdrop-blur-lg"
         >
           {partners.map((p) => (
-            <Image
-              key={p}
-              src={`/${p}.svg`}
-              alt={p}
-              width={40}
-              height={40}
-              className="h-10 grayscale transition hover:grayscale-0"
-            />
+            <div key={p} className="text-white font-bold uppercase text-xl">
+              {p}
+            </div>
           ))}
         </motion.div>
 
