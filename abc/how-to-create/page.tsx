@@ -3,7 +3,7 @@
 import { motion,AnimatePresence } from "framer-motion";
 import { Search } from "lucide-react";
 import Image from "next/image";
-import { Sidebar, SidebarBody, SidebarLink } from "../../components/ui/sidebar"; // import your Sidebar
+import { Sidebar, SidebarBody, SidebarLink } from "../../src/components/ui/sidebar"; // import your Sidebar
 
 
 

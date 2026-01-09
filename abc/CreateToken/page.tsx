@@ -1,7 +1,11 @@
 "use client";
-import { motion } from "framer-motion";
+
+import { useState } from "react";
 import Image from "next/image";
-import { Sidebar, SidebarBody, SidebarLink } from "../../components/ui/sidebar";
+import { Sidebar, SidebarBody, SidebarLink } from "../../src/components/ui/sidebar";
+
+import TransactionPopover from "../../src/components/expandable-card-demo-standard";
+import CreateTokenNav from "./CreateTokenNav"
 import {
   Send,
   Coins,
@@ -18,10 +22,9 @@ import {
   Settings,
   Lock,
 } from "lucide-react";
-import StakingNav from "./StakingNav";
-import OverviewPage from "./overview";
 
-export default function Homepage() {
+
+export default function CreateToken() {
 
   const links = [
     { label: "Home", href: "/home", icon: <Home size={20} /> },
@@ -63,25 +66,18 @@ export default function Homepage() {
         </SidebarBody>
       </Sidebar>
 
+      {/* Main Content */}
       <div className="flex-1 ml-auto">
-        {/* Navbar */}
-        <StakingNav/>
+        <CreateTokenNav />
+        <main className="max-w-7xl mx-auto px-4 transition-all duration-500 mt-20">
+          {/* Cards */}
 
-        <main
-          className={`max-w-7xl mx-auto px-4 transition-all duration-500 ${
-            "mt-10" 
-          }`}
-        >
 
-            <OverviewPage></OverviewPage>
-
-          {/* Partners Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mt-12 py-10 px-8 flex justify-around items-center bg-black/30 backdrop-blur-lg rounded-xl border border-white/10"
-          >
+          
+         
+          {/* Partners */}
+         
+          <div className="mt-12 py-10 px-8 flex justify-around items-center bg-black/30 backdrop-blur-lg rounded-xl border border-white/10">
             {partners.map((p, idx) => (
               <Image
                 key={idx}
@@ -92,9 +88,10 @@ export default function Homepage() {
                 className="h-10 grayscale hover:grayscale-0 transition"
               />
             ))}
-          </motion.div>
+          </div>
         </main>
       </div>
+      
     </div>
   );
 }

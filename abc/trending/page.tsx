@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Sidebar, SidebarBody, SidebarLink } from "../../components/ui/sidebar";
+import { Sidebar, SidebarBody, SidebarLink } from "../../src/components/ui/sidebar";
 
-import TransactionPopover from "../../components/expandable-card-demo-standard";
+import TransactionPopover from "../../src/components/expandable-card-demo-standard";
 import SwapNav from "../swap-exchange/SwapNav";
 import {
   Send,
@@ -22,9 +22,21 @@ import {
   Settings,
   Lock,
 } from "lucide-react";
+import { CardCarousel } from "@/components/ui/card-carousel";
+import { SkiperMarquee } from "@/components/ui/skiper-marquee";
 
-import CryptoPanel from "@/components/ui/CryptoPanel";
-
+const images = [
+  { src: "/images/image4.jpg", alt: "Crypto Image 1" },
+  { src: "/images/image2.jpg", alt: "Crypto Image 2" },
+  { src: "/images/image3.jpg", alt: "Crypto Image 3" },
+  { src: "/images/image1.jpg", alt: "Crypto Image 4" },
+  { src: "/images/image2.jpg", alt: "Crypto Image 5" },
+  { src: "/images/image3.jpg", alt: "Crypto Image 6" },
+  { src: "/images/image1.jpg", alt: "Crypto Image 7" },
+  { src: "/images/image2.jpg", alt: "Crypto Image 8" },
+  { src: "/images/image3.jpg", alt: "Crypto Image 9" },
+  { src: "/images/image1.jpg", alt: "Crypto Image 10" },
+];
 
 
 export default function TrendingPage() {
@@ -77,8 +89,9 @@ export default function TrendingPage() {
         <SwapNav />
         <main className="max-w-7xl mx-auto px-4 transition-all duration-500 mt-20">
           {/* Cards */}
-         <CryptoPanel/>
+          <CardCarousel images={images} autoplayDelay={2000} showPagination={true} showNavigation={true} />
           {/* Partners */}
+          <SkiperMarquee/>
           <div className="mt-12 py-10 px-8 flex justify-around items-center bg-black/30 backdrop-blur-lg rounded-xl border border-white/10">
             {partners.map((p, idx) => (
               <Image
@@ -93,6 +106,7 @@ export default function TrendingPage() {
           </div>
         </main>
       </div>
+      
 
       {/* Transaction Popover */}
       {popoverType && (

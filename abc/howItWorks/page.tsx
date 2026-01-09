@@ -1,6 +1,6 @@
 "use client";
 
-import { Sidebar, SidebarBody, SidebarLink } from "../../components/ui/sidebar";
+import { Sidebar, SidebarBody, SidebarLink } from "../../src/components/ui/sidebar";
 import {
   Send,
   Coins,

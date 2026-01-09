@@ -1,13 +1,13 @@
 "use client";
-import FlipLink from "../../components/ui/text-effect-flipper"
-import ColourfulText from "../../components/ui/colourful-text"
+import FlipLink from "../../src/components/ui/text-effect-flipper"
+import ColourfulText from "../../src/components/ui/colourful-text"
 
 
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import { motion } from "framer-motion";
 import { Search } from "lucide-react";
 import Image from "next/image";
-import { Sidebar, SidebarBody, SidebarLink } from "../../components/ui/sidebar"; // import your Sidebar
+import { Sidebar, SidebarBody, SidebarLink } from "../../src/components/ui/sidebar"; // import your Sidebar
 
 import {
   Send,
